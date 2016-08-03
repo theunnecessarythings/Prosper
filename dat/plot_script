@@ -1,0 +1,45 @@
+set terminal wxt 0 title "Insertion Sort Algorithms"
+
+set title "Insertion Sort Algorithms"
+set xlabel "Size"
+set ylabel "Time"
+
+plot "../PROSPER/dat/insertion_sort_i.dat" title "Insertion Sort Iterative" with linespoints ls 1
+replot "../PROSPER/dat/insertion_sort_r.dat" title "Insertion Sort Recursive" with linespoints ls 2
+replot "../PROSPER/dat/insertion_sort_b.dat" title "Insertion Sort Using Binary Search" with linespoints ls 3
+replot "../PROSPER/dat/counting_inversions.dat" title "Counting Inversions" with linespoints ls 4
+
+set terminal wxt 1 title "Quick Sort Algorithms"
+
+set title "Quick Sort Algorithms"
+set xlabel "Size"
+set ylabel "Time"
+
+plot "../PROSPER/dat/quick_sort_l.dat" title "Quick Sort Pivot Last Element" with linespoints ls 1
+replot "../PROSPER/dat/quick_sort_f.dat" title "Quick Sort Pivot First Element" with linespoints ls 2
+replot "../PROSPER/dat/quick_sort_r.dat" title "Quick Sort Pivot Random Element" with linespoints ls 3
+replot "../PROSPER/dat/quick_sort_m.dat" title "Quick Sort Pivot Middle Element" with linespoints ls 4
+
+set terminal wxt 2 title "Hybrid Sort Algorithms"
+
+
+set title "Hybrid Sort Algorithms"
+set xlabel "Size"
+set ylabel "Time"
+
+plot "../PROSPER/dat/merge_insertion_sort.dat" title "Merge Insertion Sort" with linespoints ls 1
+replot "../PROSPER/dat/quick_insertion_sort.dat" title "Quick Insertion Sort" with linespoints ls 2
+replot "../PROSPER/dat/quick_sort_l.dat" title "Quick Sort" with linespoints ls 3
+replot "../PROSPER/dat/insertion_sort_i.dat" title "Insertion Sort Iterative" with linespoints ls 4
+
+set terminal wxt 3 title "Search Algorithms"
+
+set title "Search Algorithms"
+set xlabel "Size"
+set ylabel "Time"
+
+plot "../PROSPER/dat/variant_linear.dat" title "Variant Linear Search" with linespoints ls 1
+replot "../PROSPER/dat/linear.dat" title "Linear Search" with linespoints ls 2
+
+pause -1 "Hit Return key to continue"
+

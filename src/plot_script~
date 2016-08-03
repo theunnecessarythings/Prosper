@@ -1,0 +1,45 @@
+set terminal x11 0
+
+set title "Insertion Sort Algorithms"
+set xlabel "Time"
+set ylabel "Size"
+
+plot "insertion_sort_i.dat" title "Insertion Sort Iterative" with linespoints ls 1
+replot "insertion_sort_r.dat" title "Insertion Sort Recursive" with linespoints ls 2
+replot "insertion_sort_b.dat" title "Insertion Sort Using Binary Search" with linespoints ls 3
+replot "counting_inversions.dat" title "Counting Inversions" with linespoints ls 4
+
+set terminal x11 1
+
+set title "Quick Sort Algorithms"
+set xlabel "Time"
+set ylabel "Size"
+
+plot "quick_sort_l.dat" title "Quick Sort Pivot Last Element" with linespoints ls 1
+replot "quick_sort_f.dat" title "Quick Sort Pivot First Element" with linespoints ls 2
+replot "quick_sort_r.dat" title "Quick Sort Pivot Random Element" with linespoints ls 3
+replot "quick_sort_m.dat" title "Quick Sort Pivot Middle Element" with linespoints ls 4
+
+set terminal x11 2
+
+
+set title "Hybrid Sort Algorithms"
+set xlabel "Time"
+set ylabel "Size"
+
+plot "merge_insertion_sort.dat" title "Merge Insertion Sort" with linespoints ls 1
+replot "quick_insertion_sort.dat" title "Quick Insertion Sort" with linespoints ls 2
+replot "quick_sort_l.dat" title "Quick Sort" with linespoints ls 3
+replot "insertion_sort_i.dat" title "Insertion Sort Iterative" with linespoints ls 4
+
+set terminal x11 3
+
+set title "Search Algorithms"
+set xlabel "Time"
+set ylabel "Size"
+
+plot "variant_linear.dat" title "" with linespoints ls 1
+replot "linear.dat" title "" with linespoints ls 2
+
+pause -1 "Hit any key to continue"
+

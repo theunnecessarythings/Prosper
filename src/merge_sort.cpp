@@ -1,0 +1,51 @@
+//performs classical merge sort
+#include "merge_sort.h"
+using namespace std;
+/*MergeSort :: MergeSort (){
+				int data;
+				cout<<"Size : ";
+				cin>>size;
+				cout<<"Enter the array : ";
+				for( int i = 0; i < size; i++ ){
+								cin>>data;
+								array.push_back(data);
+				}
+}
+
+void MergeSort :: display (){
+				for( int i = 0; i < array.size(); i++ )
+								cout<<array[i]<<"\t";
+				cout<<endl;
+}	*/
+
+void MergeSort::mergeSort(vector<int> &arr, int low, int high) {   //function to divide
+	int mid;
+	if (low < high) {
+		mid = (low + high) / 2;
+		mergeSort(arr, low, mid);
+		mergeSort(arr, mid + 1, high);
+		merge(arr, low, high, mid);
+	}
+}
+
+void MergeSort::merge(vector<int> &arr, int low, int high, int mid) {  //function to merge
+	int left_index, right_index;
+	vector<int> result;
+	left_index = low;
+	right_index = mid + 1;
+	while (left_index <= mid && right_index <= high) {
+		if (arr[left_index] < arr[right_index])
+			result.push_back(arr[left_index++]);
+		else
+			result.push_back(arr[right_index++]);
+	}
+	while (left_index <= mid) result.push_back(arr[left_index++]);
+
+	while (right_index <= high) result.push_back(arr[right_index++]);
+
+	for (left_index = 0; left_index < result.size(); left_index++)
+		arr[low++] = result[left_index];
+}
+
+void MergeSort::sort() { mergeInsertionSort(array, 0, size - 1); }
+

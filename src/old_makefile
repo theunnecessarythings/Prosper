@@ -1,0 +1,52 @@
+IDIR =../include
+CC=gcc
+CFLAGS=-I$(IDIR)
+OBJDIR=../obj/
+OBJFLAG=-o $(OBJDIR)
+
+OBJECTS=insertion_sort.o quick_sort.o analysis.o circus.o hanoi.o triomino.o ladder_climb.o utilities.o quick_insertion.o merge_sort.o merge_insertion.o variant_linear.o main.o
+
+Prosper:$(OBJECTS)
+	g++ -o ../Prosper $(OBJDIR)insertion_sort.o $(OBJDIR)quick_sort.o $(OBJDIR)analysis.o $(OBJDIR)circus.o $(OBJDIR)hanoi.o $(OBJDIR)triomino.o $(OBJDIR)ladder_climb.o $(OBJDIR)utilities.o $(OBJDIR)quick_insertion.o $(OBJDIR)merge_sort.o $(OBJDIR)merge_insertion.o $(OBJDIR)variant_linear.o $(OBJDIR)main.o -std=c++11
+
+main.o:main.cpp
+	g++ -c main.cpp $(OBJFLAG)main.o  $(CFLAGS) -std=c++11
+
+insertion_sort.o:insertion_sort.cpp
+	g++ -c insertion_sort.cpp $(OBJFLAG)insertion_sort.o $(CFLAGS) -std=c++11
+
+quick_sort.o:quick_sort.cpp
+	g++ -c quick_sort.cpp $(OBJFLAG)quick_sort.o $(CFLAGS) -std=c++11
+
+analysis.o:analysis.cpp insertion_sort.cpp quick_sort.cpp merge_insertion.cpp quick_insertion.cpp variant_linear.cpp
+	g++ -c analysis.cpp $(OBJFLAG)analysis.o $(CFLAGS) -std=c++11
+	
+circus.o:circus.cpp
+	g++ -c circus.cpp $(OBJFLAG)circus.o $(CFLAGS) -std=c++11
+
+hanoi.o:hanoi.cpp
+	g++ -c hanoi.cpp $(OBJFLAG)hanoi.o $(CFLAGS) -std=c++11
+
+triomino.o:triomino.cpp
+	g++ -c triomino.cpp $(OBJFLAG)triomino.o $(CFLAGS) -std=c++11
+
+ladder_climb.o:ladder_climb.cpp
+	g++ -c ladder_climb.cpp $(OBJFLAG)ladder_climb.o $(CFLAGS) -std=c++11
+
+utilities.o:utilities.cpp
+	g++ -c utilities.cpp $(OBJFLAG)utilities.o $(CFLAGS) -std=c++11
+	
+quick_insertion.o:quick_insertion.cpp insertion_sort.cpp quick_sort.cpp
+	g++ -c quick_insertion.cpp $(OBJFLAG)quick_insertion.o $(CFLAGS) -std=c++11
+
+merge_sort.o:merge_sort.cpp
+	g++ -c merge_sort.cpp $(OBJFLAG)merge_sort.o $(CFLAGS) -std=c++11
+
+merge_insertion.o:merge_insertion.cpp merge_sort.cpp insertion_sort.cpp
+	g++ -c merge_insertion.cpp $(OBJFLAG)merge_insertion.o $(CFLAGS) -std=c++11
+	
+variant_linear.o:variant_linear.cpp
+	g++ -c variant_linear.cpp $(OBJFLAG)variant_linear.o $(CFLAGS) -std=c++11
+
+clean:
+	rm $(OBJDIR)*.o ../Prosper ../dat/*.dat
